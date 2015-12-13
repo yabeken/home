@@ -1,0 +1,10 @@
+# ignore all
+*
+
+# git ignore
+!.gitignore
+
+# zsh
+!.zshrc
+!.zshenv
+
