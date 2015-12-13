@@ -1,10 +1,15 @@
 # ignore all
 *
 
-# git ignore
+# README
+!README.md
+
+# gitignore
 !.gitignore
 
 # zsh
 !.zshrc
 !.zshenv
 
+# emacs
+!.emacs.d
