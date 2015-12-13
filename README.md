@@ -21,7 +21,7 @@ sudo apt-get install python-dev ncurses-dev libpq-dev libx11-dev libxaw7-dev lib
 
 ## pyenv
 
-see [pyenv](https://github.com/yyuu/pyenv)
+see [pyenv](https://github.com/yyuu/pyenv) and [pyenv-virtualenv](https://github.com/yyuu/pyenv-virtualenv)
 
 ## Ricty
 
