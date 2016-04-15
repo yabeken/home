@@ -28,10 +28,10 @@ export ZLS_COLORS=$LS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # python
-#export WORKON_HOME=$HOME/.virtualenvs
-#source `which virtualenvwrapper.sh`
-#export PIP_RESPECT_VIRTUALENV=true
-#export PYTHONPATH=../
+export WORKON_HOME=$HOME/.virtualenvs
+source `which virtualenvwrapper.sh`
+export PIP_RESPECT_VIRTUALENV=true
+export PYTHONPATH=../
 
 # prompt
 autoload colors && colors
@@ -124,4 +124,29 @@ alias lf="ls -F"
 alias ll="ls -l"
 alias du="du -h"
 alias df="df -h"
+
+######################
+# show current branch
+#
+# @see
+# http://stackoverflow.com/questions/1128496/to-get-a-prompt-which-indicates-git-branch-in-zsh
+
+setopt prompt_subst
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' actionformats \
+    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
+zstyle ':vcs_info:*' formats       \
+    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+
+zstyle ':vcs_info:*' enable git cvs svn
+
+# or use pre_cmd, see man zshcontrib
+vcs_info_wrapper() {
+  vcs_info
+  if [ -n "$vcs_info_msg_0_" ]; then
+    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
+  fi
+}
+RPROMPT=$'$(vcs_info_wrapper)'
 
