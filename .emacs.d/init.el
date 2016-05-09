@@ -134,8 +134,9 @@
 (defvar installing-package-list
   '(
     ;; ここに使いたいパッケージを書く
-    anything
-    anything-config
+    ;; anything
+    ;; anything-config
+    helm
     auto-complete
     hlinum
     magit
@@ -164,21 +165,28 @@
 ;;
 ;; anything
 ;;
-(require 'anything)
-(require 'anything-config)
-(require 'anything-match-plugin)
-(setq anything-sources (list anything-c-source-buffers
-anything-c-source-bookmarks
-anything-c-source-recentf
-anything-c-source-file-name-history
-anything-c-source-locate))
-(define-key anything-map (kbd "C-p") 'anything-previous-line)
-(define-key anything-map (kbd "C-n") 'anything-next-line)
-(define-key anything-map (kbd "C-v") 'anything-next-source)
-(define-key anything-map (kbd "M-v") 'anything-previous-source)
-(setq my-anything-keybind (kbd "C-]"))
-(global-set-key my-anything-keybind 'anything-for-files)
-(define-key anything-map my-anything-keybind 'abort-recursive-edit)
+;; (require 'anything)
+;; (require 'anything-config)
+;; (require 'anything-match-plugin)
+;; (setq anything-sources (list anything-c-source-buffers
+;; anything-c-source-bookmarks
+;; anything-c-source-recentf
+;; anything-c-source-file-name-history
+;; anything-c-source-locate))
+;; (define-key anything-map (kbd "C-p") 'anything-previous-line)
+;; (define-key anything-map (kbd "C-n") 'anything-next-line)
+;; (define-key anything-map (kbd "C-v") 'anything-next-source)
+;; (define-key anything-map (kbd "M-v") 'anything-previous-source)
+;; (setq my-anything-keybind (kbd "C-]"))
+;; (global-set-key my-anything-keybind 'anything-for-files)
+;; (define-key anything-map my-anything-keybind 'abort-recursive-edit)
+
+;;
+;; helm
+;;
+(require 'helm-config)
+(helm-mode 1)
+(global-set-key (kbd "M-x") 'helm-M-x)
 
 ;;
 ;; auto-complete
