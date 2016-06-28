@@ -28,10 +28,9 @@ export ZLS_COLORS=$LS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # python
-export WORKON_HOME=$HOME/.virtualenvs
-source `which virtualenvwrapper.sh`
-export PIP_RESPECT_VIRTUALENV=true
-export PYTHONPATH=../
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv virtualenv-init -)"
 
 # prompt
 autoload colors && colors
