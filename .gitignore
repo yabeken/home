@@ -1,6 +1,9 @@
 # ignore all
 *
 
+# setup
+!setup.sh
+
 # README
 !README.md
 
@@ -8,8 +11,7 @@
 !.gitignore
 
 # zsh
-!.zshrc
-!.zshenv
+!.zsh/
 
 # emacs
 !.emacs.d/
